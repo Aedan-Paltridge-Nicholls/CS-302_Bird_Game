@@ -1,0 +1,6 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Style.uss?fileID=7433441132597879392&amp;guid=f85ff9e51c7345c4383ae375262d8bdb&amp;type=3#Style"/>
+    <ui:VisualElement style="flex-grow: 1; flex-basis: 100%;">
+        <ui:Label text="Victory,&#10; you have completed the quest, by finding all the rats  " style="white-space: normal; -unity-text-align: middle-center; -unity-text-auto-size: best-fit 10px 100px; -unity-text-generator: advanced; -unity-text-outline-color: rgb(0, 0, 0); color: rgb(4, 255, 49); -unity-text-outline-width: 1.5px; text-shadow: 5px 5px 4px rgb(0, 0, 0);"/>
+    </ui:VisualElement>
+</ui:UXML>

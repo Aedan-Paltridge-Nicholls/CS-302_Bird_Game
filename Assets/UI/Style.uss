@@ -1,0 +1,32 @@
+VisualElement {
+}
+
+.unity-toggle {
+    flex-grow: 50;
+    font-size: 28px;
+    flex-shrink: 0;
+    align-self: auto;
+}
+
+.unity-label {
+    font-size: 32px;
+}
+
+.unity-text-element {
+    -unity-font-definition: url("project://database/Assets/UI/Font/sancreek.regular.ttf?fileID=12800000&guid=35ba20f303a9caa4abbd6cec5da5c348&type=3#sancreek.regular");
+    -unity-text-align: middle-left;
+    font-size: 55px;
+    -unity-text-generator: standard;
+}
+
+.unity-base-slider {
+}
+
+.unity-popup-field {
+    -unity-font-definition: url("project://database/Assets/UI/Font/sancreek.regular.ttf?fileID=12800000&guid=35ba20f303a9caa4abbd6cec5da5c348&type=3#sancreek.regular");
+    font-size: 25px;
+    -unity-text-align: upper-center;
+}
+
+.unity-toggle__checkmark {
+}

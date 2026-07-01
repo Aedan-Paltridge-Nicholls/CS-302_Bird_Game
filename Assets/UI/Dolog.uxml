@@ -1,0 +1,23 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Dialog%20style.uss?fileID=7433441132597879392&amp;guid=34a43fb8d31cbcc44bab8a3d0929ad17&amp;type=3#Dialog style"/>
+    <ui:GroupBox data-source="project://database/Assets/Text.asset?fileID=11400000&amp;guid=67758535ad5057147891d7fcb7a51c5f&amp;type=2#Text" style="text-shadow: 0 0 0 rgb(255, 255, 255); border-left-color: rgb(9, 9, 9); border-right-color: rgb(9, 9, 9); border-top-color: rgb(9, 9, 9); border-bottom-color: rgb(9, 9, 9); background-color: rgb(255, 255, 255); border-top-width: 5px; border-right-width: 5px; border-bottom-width: 5px; border-left-width: 5px; -unity-background-scale-mode: stretch-to-fill; align-content: stretch; align-items: center; flex-wrap: nowrap; max-width: 75%; max-height: 75%; min-height: 40%; min-width: 40%; justify-content: space-between; width: 24%; height: 100%; flex-basis: auto; position: relative; overflow: hidden; align-self: center; aspect-ratio: 1.5; -unity-text-auto-size: none; -unity-text-align: upper-left; top: 10%; bottom: 10%;">
+        <ui:VisualElement style="flex-grow: 1; flex-direction: row-reverse;">
+            <ui:Toggle label="Accept quest " toggle-on-label-click="true" value="true" style="-unity-font-definition: url(&quot;project://database/Assets/UI/Font/sancreek.regular.ttf?fileID=12800000&amp;guid=35ba20f303a9caa4abbd6cec5da5c348&amp;type=3#sancreek.regular&quot;); -unity-text-align: middle-left; font-size: 20px; color: rgb(0, 195, 28); -unity-text-outline-color: rgb(0, 0, 0); -unity-text-outline-width: 1px;">
+                <Bindings>
+                    <ui:DataBinding property="value" data-source-path="IsTalking" data-source="project://database/Assets/Modals/Pepole/Scripts/LyraVeyne.asset?fileID=11400000&amp;guid=0c6345fba4dd596468195346dffa4e1a&amp;type=2#LyraVeyne" binding-mode="TwoWay"/>
+                    <ui:DataBinding property="label" data-source-path="InformationDisplay.Exit_text" binding-mode="ToTarget"/>
+                </Bindings>
+            </ui:Toggle>
+            <ui:Label text="Conservation scientist lady " name="topLablel" style="-unity-font-definition: url(&quot;project://database/Assets/UI/Font/sancreek.regular.ttf?fileID=12800000&amp;guid=35ba20f303a9caa4abbd6cec5da5c348&amp;type=3#sancreek.regular&quot;); -unity-text-auto-size: best-fit 14px 36px; -unity-text-generator: advanced; -unity-text-align: middle-left;">
+                <Bindings>
+                    <ui:DataBinding property="text" data-source-path="InformationDisplay.Information_giver" binding-mode="ToTarget"/>
+                </Bindings>
+            </ui:Label>
+        </ui:VisualElement>
+        <ui:TextField label="" placeholder-text="filler text" enabled="true" tabindex="0" max-length="-1" vertical-scroller-visibility="AlwaysVisible" keyboard-type="Default" select-line-by-triple-click="false" select-word-by-double-click="false" select-all-on-focus="false" select-all-on-mouse-up="false" mask-character="." multiline="true" auto-correction="false" style="white-space: normal; -unity-text-align: upper-center; min-height: 20%; max-height: 85%;">
+            <Bindings>
+                <ui:DataBinding property="value" data-source-path="InformationDisplay.information_Text" binding-mode="ToTarget"/>
+            </Bindings>
+        </ui:TextField>
+    </ui:GroupBox>
+</ui:UXML>

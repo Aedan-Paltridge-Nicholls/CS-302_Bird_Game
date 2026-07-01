@@ -1,0 +1,86 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Style.uss?fileID=7433441132597879392&amp;guid=f85ff9e51c7345c4383ae375262d8bdb&amp;type=3#Style"/>
+    <ui:VisualElement name="Back" style="flex-grow: 1; background-color: rgb(90, 107, 49); justify-content: space-around; align-items: stretch; align-content: stretch; aspect-ratio: 1.777778; width: auto; align-self: stretch; height: auto; -unity-text-auto-size: best-fit 10px 100px; -unity-text-generator: advanced;">
+        <ui:VisualElement style="flex-grow: 1; margin-top: 1%; margin-right: 1%; margin-bottom: 1%; margin-left: 1%; padding-top: 2.5%; padding-right: 2.5%; padding-bottom: 2.5%; padding-left: 2.5%; border-left-color: rgb(90, 107, 49); border-right-color: rgb(90, 107, 49); border-top-color: rgb(90, 107, 49); border-bottom-color: rgb(90, 107, 49); border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-top-left-radius: 109px; border-top-right-radius: 109px; border-bottom-right-radius: 109px; border-bottom-left-radius: 109px; background-color: rgb(255, 255, 255); -unity-text-auto-size: best-fit 10px 25px; -unity-text-generator: standard; flex-direction: row-reverse;">
+            <ui:VisualElement style="flex-grow: 1; -unity-background-scale-mode: scale-and-crop;">
+                <ui:GroupBox name="DisplaySettings" style="flex-direction: row; justify-content: space-between; align-self: stretch; align-content: auto; align-items: stretch; margin-right: 162px;">
+                    <ui:DropdownField label="Resolution" name="ResolutionDropdownField" data-source="project://database/Assets/UI/Scripts/SettingsObject.asset?fileID=11400000&amp;guid=d378abd8990845e47b9d3ab2e97699f6&amp;type=2#SettingsObject" data-source-path="" index="-11" tooltip="Change the Resolution of the game " style="align-self: center; -unity-text-auto-size: none;">
+                        <Bindings>
+                            <ui:DataBinding property="choices" update-trigger="EveryUpdate" data-source-path="Resolution_dropdown.choices" binding-mode="TwoWay"/>
+                            <ui:DataBinding property="index" data-source-path="resolutionList.indexPicked" binding-mode="TwoWay"/>
+                        </Bindings>
+                    </ui:DropdownField>
+                    <ui:DropdownField label="Display Mode" choices="Windowed,Fullscreen,Borderless" index="1" name="DisplayModeDropdownField" tooltip="Just change how the game is rendered on your screen " style="align-self: center; -unity-text-auto-size: none;">
+                        <Bindings>
+                            <ui:DataBinding property="choices" data-source-path="DisplayMode_dropdown.choices" data-source="project://database/Assets/UI/Scripts/SettingsObject.asset?fileID=11400000&amp;guid=d378abd8990845e47b9d3ab2e97699f6&amp;type=2#SettingsObject" binding-mode="ToTarget"/>
+                            <ui:DataBinding property="index" data-source-path="DisplayMode_dropdown.index" data-source="project://database/Assets/UI/Scripts/SettingsObject.asset?fileID=11400000&amp;guid=d378abd8990845e47b9d3ab2e97699f6&amp;type=2#SettingsObject" binding-mode="ToSource"/>
+                        </Bindings>
+                    </ui:DropdownField>
+                </ui:GroupBox>
+                <ui:GroupBox name="Master_Volume" style="flex-direction: row; height: 145px;">
+                    <ui:Slider label="Master Volume " value="0.0001" high-value="1" fill="true" show-input-field="false" inverted="false" data-source-path="mixer" name="MasterVolumeSlider" data-source="project://database/Assets/UI/Scripts/SettingsObject.asset?fileID=11400000&amp;guid=d378abd8990845e47b9d3ab2e97699f6&amp;type=2#SettingsObject" low-value="0.0001" style="width: 90%; -unity-text-align: middle-center; flex-direction: row; -unity-font-definition: url(&quot;project://database/Assets/UI/Font/sancreek.regular.ttf?fileID=12800000&amp;guid=35ba20f303a9caa4abbd6cec5da5c348&amp;type=3#sancreek.regular&quot;); height: auto; font-size: 64px; align-self: center; justify-content: space-between; align-items: auto; -unity-text-auto-size: none;">
+                        <Bindings>
+                            <ui:DataBinding property="value" data-source-path="MasterVolume" binding-mode="TwoWay"/>
+                            <ui:DataBinding property="enabledSelf" data-source-path="MasterVolume_Enabled" binding-mode="ToTarget"/>
+                            <ui:DataBinding property="fill" data-source-path="MasterVolume_Enabled" binding-mode="ToTarget"/>
+                        </Bindings>
+                    </ui:Slider>
+                    <ui:Toggle text="♪" value="false" toggle-on-label-click="false" data-source="project://database/Assets/UI/Scripts/SettingsObject.asset?fileID=11400000&amp;guid=d378abd8990845e47b9d3ab2e97699f6&amp;type=2#SettingsObject" enabled="true" label="" tooltip="Mute everything" style="justify-content: flex-end; align-items: stretch; flex-direction: row; align-self: center; align-content: center; -unity-text-generator: standard; -unity-text-auto-size: none;">
+                        <Bindings>
+                            <ui:DataBinding property="value" data-source-path="mixer.MasterVolume_isMuted" binding-mode="ToSource"/>
+                        </Bindings>
+                    </ui:Toggle>
+                </ui:GroupBox>
+                <ui:GroupBox name="SFX_Volume" class="S" style="flex-direction: row;">
+                    <ui:Slider label="SFX Volume " value="42" high-value="10" show-input-field="false" inverted="false" name="SFXVolumeSlider" data-source="project://database/Assets/UI/Scripts/SettingsObject.asset?fileID=11400000&amp;guid=d378abd8990845e47b9d3ab2e97699f6&amp;type=2#SettingsObject" low-value="0.0001" style="width: 90%; flex-direction: row; height: auto; align-self: center; -unity-text-auto-size: none;">
+                        <Bindings>
+                            <ui:DataBinding property="value" data-source-path="SFXVolume" binding-mode="TwoWay"/>
+                            <ui:DataBinding property="enabledSelf" data-source-path="mixer.SFXVolume_Enabled" binding-mode="ToTarget"/>
+                            <ui:DataBinding property="fill" data-source-path="mixer.SFXVolume_Enabled" binding-mode="ToTarget"/>
+                        </Bindings>
+                    </ui:Slider>
+                    <ui:Toggle label="" text="♪" value="false" toggle-on-label-click="false" data-source="project://database/Assets/UI/Scripts/SettingsObject.asset?fileID=11400000&amp;guid=d378abd8990845e47b9d3ab2e97699f6&amp;type=2#SettingsObject" tooltip="Mute the Sound effects " style="justify-content: center; align-items: auto; flex-direction: row; align-self: center; -unity-text-auto-size: none;">
+                        <Bindings>
+                            <ui:DataBinding property="value" data-source-path="mixer.SFXVolume_isMuted" binding-mode="ToSource"/>
+                        </Bindings>
+                    </ui:Toggle>
+                </ui:GroupBox>
+                <ui:GroupBox name="Music_Volume" class="s" style="flex-direction: row; align-self: auto; justify-content: flex-start;">
+                    <ui:Slider label="Music Volume " value="42" high-value="10" fill="true" show-input-field="false" inverted="false" data-source-path="mixer" name="MusicVolumeSlider" data-source="project://database/Assets/UI/Scripts/SettingsObject.asset?fileID=11400000&amp;guid=d378abd8990845e47b9d3ab2e97699f6&amp;type=2#SettingsObject" low-value="0.0001" style="width: 90%; flex-direction: row; height: auto; align-self: center; -unity-text-auto-size: none;">
+                        <Bindings>
+                            <ui:DataBinding property="value" data-source-path="MusicVolume" binding-mode="TwoWay"/>
+                            <ui:DataBinding property="fill" data-source-path="MusicVolume_Enabled" binding-mode="ToTarget"/>
+                            <ui:DataBinding property="enabledSelf" data-source-path="MusicVolume_Enabled" binding-mode="ToTarget"/>
+                        </Bindings>
+                    </ui:Slider>
+                    <ui:Toggle label="" text="♪" value="true" data-source="project://database/Assets/UI/Scripts/SettingsObject.asset?fileID=11400000&amp;guid=d378abd8990845e47b9d3ab2e97699f6&amp;type=2#SettingsObject" tooltip="Mute the music " style="justify-content: center; align-items: auto; flex-direction: row; align-self: center; -unity-text-auto-size: none;">
+                        <Bindings>
+                            <ui:DataBinding property="value" data-source-path="mixer.MusicVolume_isMuted" binding-mode="ToSource"/>
+                        </Bindings>
+                    </ui:Toggle>
+                </ui:GroupBox>
+                <ui:GroupBox name="Dialog_Volume" class="s" style="flex-direction: row; align-self: auto; justify-content: flex-start;">
+                    <ui:Slider label="Dialog Volume " value="10" high-value="10" show-input-field="false" inverted="false" name="DialogVolumeSlider" data-source="project://database/Assets/UI/Scripts/SettingsObject.asset?fileID=11400000&amp;guid=d378abd8990845e47b9d3ab2e97699f6&amp;type=2#SettingsObject" low-value="0.0001" style="width: 90%; flex-direction: row; height: auto; align-self: center; -unity-text-auto-size: none;">
+                        <Bindings>
+                            <ui:DataBinding property="value" data-source-path="DialogVolume" binding-mode="TwoWay"/>
+                            <ui:DataBinding property="enabledSelf" data-source-path="mixer.DialogVolume_Enabled" binding-mode="ToTarget"/>
+                            <ui:DataBinding property="fill" data-source-path="mixer.DialogVolume_Enabled" binding-mode="ToTarget"/>
+                        </Bindings>
+                    </ui:Slider>
+                    <ui:Toggle label="" text="♪" value="true" data-source="project://database/Assets/UI/Scripts/SettingsObject.asset?fileID=11400000&amp;guid=d378abd8990845e47b9d3ab2e97699f6&amp;type=2#SettingsObject" tooltip="Mute the dialog " style="justify-content: center; align-items: auto; flex-direction: row; align-self: center; -unity-text-auto-size: none; -unity-font-definition: url(&quot;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#LegacyRuntime&quot;);">
+                        <Bindings>
+                            <ui:DataBinding property="value" data-source-path="mixer.DialogVolume_isMuted" binding-mode="ToSource"/>
+                        </Bindings>
+                    </ui:Toggle>
+                </ui:GroupBox>
+                <ui:GroupBox name="ButtonGroup" style="flex-direction: row; justify-content: space-between; height: 251px; width: auto; top: auto; align-items: center; align-self: stretch; bottom: -85px;">
+                    <ui:Button text="Controls" name="ControlsPage_Button" tooltip="Go to the controls page to re bind the controls " style="width: 222px; height: 106px; -unity-text-align: middle-center; font-size: 45px; background-color: rgb(255, 255, 255); border-top-left-radius: 32px; border-top-right-radius: 32px; border-bottom-right-radius: 32px; border-bottom-left-radius: 32px; border-top-width: 4px; border-right-width: 4px; border-bottom-width: 4px; border-left-width: 4px; border-left-color: rgb(9, 9, 9); border-right-color: rgb(9, 9, 9); border-top-color: rgb(9, 9, 9); border-bottom-color: rgb(9, 9, 9); white-space: nowrap; -unity-text-auto-size: none;"/>
+                    <ui:Button text="Quit" name="Quit_Button" tooltip="Quit the game " style="width: 175px; height: 106px; -unity-text-align: middle-center; font-size: 55px; background-color: rgb(255, 0, 0); border-top-left-radius: 32px; border-top-right-radius: 32px; border-bottom-right-radius: 32px; border-bottom-left-radius: 32px; border-top-width: 4px; border-right-width: 4px; border-bottom-width: 4px; border-left-width: 4px; border-left-color: rgb(9, 9, 9); border-right-color: rgb(9, 9, 9); border-top-color: rgb(9, 9, 9); border-bottom-color: rgb(9, 9, 9); align-self: center; color: rgb(255, 255, 255); -unity-text-outline-width: 1px; -unity-font-style: bold; -unity-text-auto-size: none;"/>
+                </ui:GroupBox>
+            </ui:VisualElement>
+            <ui:GroupBox>
+                <ui:Button text="" double-click-selects-word="false" triple-click-selects-line="false" selectable="true" emoji-fallback-support="false" enable-rich-text="false" focusable="true" tooltip="Go Back  " icon-image="project://database/Assets/UI/Images/Arrow.svg?fileID=7388822144124034973&amp;guid=7040ca4083b710947aa2d5256b89c14c&amp;type=3#Arrow" enabled="true" name="BackButton" style="-unity-background-scale-mode: scale-to-fit; width: 100%; background-color: rgba(255, 255, 255, 0); border-left-color: rgba(149, 149, 149, 0); border-right-color: rgba(149, 149, 149, 0); border-top-color: rgba(149, 149, 149, 0); border-bottom-color: rgba(149, 149, 149, 0); height: 10%; aspect-ratio: 1; cursor: url(&quot;project://database/Assets/UI/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=7433338533053954386&amp;guid=d2054ec0a8ee3e34aa90a401545ebd3a&amp;type=3#check@2x&quot;); -unity-text-auto-size: none;"/>
+            </ui:GroupBox>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

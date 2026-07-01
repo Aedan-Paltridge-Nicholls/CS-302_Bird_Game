@@ -1,0 +1,15 @@
+:root {
+}
+
+
+
+
+
+.unity-text-field {
+    -unity-font-definition: url("project://database/Assets/UI/Font/sancreek.regular.ttf?fileID=12800000&guid=35ba20f303a9caa4abbd6cec5da5c348&type=3#sancreek.regular");
+    -unity-text-generator: advanced;
+    -unity-text-auto-size: best-fit 14px 26px;
+}
+
+.unity-text-element {
+}
