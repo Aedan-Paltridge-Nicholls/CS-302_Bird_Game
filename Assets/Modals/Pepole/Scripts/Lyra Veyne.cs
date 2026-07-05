@@ -19,7 +19,9 @@ public class LyraVeyne : ScriptableObject
     public float jumpHeight = 2f;
     public float rotationSpeed = 720f;
     public bool  IsTalking = false;
+    public int Quest_Rats = 0;
     public int Captured_Rats = 0;
+
         
 
     public string DisplayStamina;

@@ -23,6 +23,8 @@ public class TalkRay : MonoBehaviour
     [SerializeField]
     LyraVeyne PlayerScript;
     [SerializeField]
+    RatQuest RatQuest;
+    [SerializeField]
     Text Dialog;
     [SerializeField]
     UIDocument uIDocument;
@@ -54,10 +56,12 @@ public class TalkRay : MonoBehaviour
             {
 
                 Collider NpcCollider = TalkHitData.collider; 
-                Animator NpcAnimator = NpcCollider.GetComponentInParent<Animator>();    
-                
+                Animator NpcAnimator = NpcCollider.GetComponentInParent<Animator>();
+
+
                 if (NpcAnimator.GetBool("IsTalking") == false)
                 {
+                   
                     Dialog.SetText(Dialog.Quest);
                     NpcAnimator.SetBool("IsTalking", true);
                     Player.transform.LookAt(NpcCollider.transform);
@@ -103,7 +107,7 @@ public class TalkRay : MonoBehaviour
             {
                 Destroy(ObjPest);
                 PlayerScript.Captured_Rats += 1;
-                if (PlayerScript.Captured_Rats >= 5)
+                if (PlayerScript.Captured_Rats >= PlayerScript.Quest_Rats && PlayerScript.Quest_Rats > 0)
                 {
                     uIDocument.enabled = true;
 

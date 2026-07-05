@@ -20,6 +20,7 @@ MonoBehaviour:
   jumpHeight: 2
   rotationSpeed: 720
   IsTalking: 0
+  Quest_Rats: 15
   Captured_Rats: 0
   DisplayStamina: 100
   DisplayHealth: 67

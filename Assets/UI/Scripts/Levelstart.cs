@@ -5,14 +5,26 @@ using UnityEngine.Rendering;
 
 public class Levelstart : MonoBehaviour
 {
-    public CinemachineCamera camera1;
-    public CinemachineCamera camera2;
-
+    [SerializeField] 
+    CinemachineCamera camera1;
+    [SerializeField]
+    CinemachineCamera camera2;
+    [SerializeField] 
+    GameObject pest;
+    [SerializeField] 
+    LyraVeyne Player;
+    [SerializeField]
+    RatQuest RatQuest;
+    [SerializeField]
+    int MinPests = 5;
+    [SerializeField]
+    int MaxPests = 25;
     void Start()
     {
         Ratrandomizer();
         camera1.Priority = 10;
         camera2.Priority = 0;
+        Player.Quest_Rats = RatQuest.TotalRatsToCapture;
     }
 
     public void Ratrandomizer()
@@ -20,18 +32,23 @@ public class Levelstart : MonoBehaviour
          Vector3 minPosition = new Vector3(-12f, 0f, -12f);
          Vector3 maxPosition = new Vector3(12f, 0f, 12f);
 
-      
-        GameObject[] objects = GameObject.FindGameObjectsWithTag("Pest");
-        foreach (GameObject obj in objects)
+        int randomPestCount = Random.Range(MinPests, MaxPests);
+        RatQuest.TotalRatsToCapture = randomPestCount;
+
+
+
+        for (int i = 0;i < randomPestCount; i++)
         {
+            Player.Quest_Rats += 1; 
             Vector3 randomPos = new Vector3(
                 Random.Range(-12f, 12f),
                 Random.Range(0, 0),
                 Random.Range(-12f, 12)
             );
 
-            obj.transform.position = randomPos;
+            Instantiate(pest, randomPos, Quaternion.identity);
         }
+        GameObject[] objects = GameObject.FindGameObjectsWithTag("Pest");
 
         Debug.Log($"Randomized positions for  {objects.Length} pests .");
         
