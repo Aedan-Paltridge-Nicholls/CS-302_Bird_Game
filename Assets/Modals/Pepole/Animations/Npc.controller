@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BoredomControler
   _TimeTillBoredom_: 5
-  _BoredAnimationCount_: 1
+  _BoredAnimationCount_: 2
 --- !u!114 &-168169697213432454
 MonoBehaviour:
   m_ObjectHideFlags: 1
